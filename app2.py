@@ -102,6 +102,12 @@ if (selected == 'Diabetes Prediction'):
 
 
 if (selected == "Data Visualiztion"):
+    HTML_BANNER = """
+    <div style="background-color:#464e5f;padding:10px;border-radius:10px">
+    <h1 style="color:white;text-align:center;">Diabetes App </h1>
+    </div>
+    """
+    stc.html(HTML_BANNER)
     st.write("""
     ## Plots Showing Relationsip between diabetes outcome and other features
     """)
@@ -187,9 +193,9 @@ if (selected == "About"):
     with img:
         st.image(fk_img)
     with desc:
-        st.markdown("<h4 style='text-align: center; color: blue; margin: 3px'>Data Scientist|Actuarial Scientist|Data Analyst</h4>", unsafe_allow_html=True)
+        st.markdown("<h4 style='text-align: center; color: black; margin: 3px'>Data Scientist|Actuarial Scientist|Data Analyst</h4>", unsafe_allow_html=True)
         st.markdown('<p style="text-align: justify;">I am a Data Scientist with a number of years of experience in data analysis, Statistical analysis, data visualization, data mining, Machine learning, deep learning, Artificial Intelligence and web app deployment. I am highly organized, motivated, and diligent with an advanced understanding of statistical, algebraic, and other analytical techniques. Moreover, I am proficient to an advanced level in using Python, R, SPSS, MS Excel, and SQL. Throughout my career, I contributed to positive business results through effective organization, prioritization, and follow-through of crucial organizational projects. </p>', unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; color: blue; background: #D3D3D3; margin: 3px'>My Experience</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: black; background: #D3D3D3; margin: 3px'>My Experience</h1>", unsafe_allow_html=True)
     stepwise, Zalego,RSSB,CIDRA= st.columns(4)
    
     with stepwise:
@@ -227,7 +233,7 @@ if (selected == "About"):
         st.write("Data Analysis and statistical analysis")
         st.write("Machine Learning")
         st.write("Data Visualization and Reporting")    
-    st.markdown("<h3 style='text-align: center; color: blue; background: #D3D3D3; margin: 3px'>My Skills</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: black; background: grey; margin: 3px'>My Skills</h1>", unsafe_allow_html=True)
     with CIDRA:
         st.markdown('##### Data Analyst')
         st.write("Company: CIDRA, Kigali, Rwanda")
@@ -243,73 +249,73 @@ if (selected == "About"):
         x = ['Python', 'R', 'SQL',  "MS Excel", 'SPSS','SAS']
         for i in x:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
     with s2:
         st.markdown('##### Data Analysis')
         x = ['Data Cleaning','EDA','Data Wrangling', 'Descriptive Analysis', 'Inferential Statistics (A/B Testing', 'Times Series Analysis', 'Predictive Analysis']
         for i in x:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.6em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.6em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
     
     with s3:
         st.markdown('##### Visualization')
         x = ['Power BI', 'Plotly', 'Seaborn', 'GGplot 2','Pandas']
         for i in x:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
     s4, s5, s6= st.columns(3)
     with s4:
         st.markdown('##### ML&DL')
         x = ['Sklearn','Keras','TensorFlow', 'Pytorch', 'NumPy', 'Pandas']
         for i in x:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.6em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.6em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
     
     with s5:
         st.markdown('##### AI')
         x = ['NLP', 'Neural Networks']
         for i in x:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
     with s6:
         st.markdown('##### WEB APP')
         x = ['Flask', 'Streamlit', 'Heroku',"Panel"]
         for i in x:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
             
-    st.markdown("<h3 style='text-align: center; color: blue; background: #D3D3D3; margin: 3px'>Education</h1>", unsafe_allow_html=True)
-    st.markdown("<h4 <span style = color:blue;'>Course:</span>Master of Science in Data Science</h4>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: black; background: #D3D3D3; margin: 3px'>Education</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 <span style = color:black;'>Course:</span>Master of Science in Data Science</h4>", unsafe_allow_html=True)
     st.markdown("<h6 <span'>School:</span> ACE-DS, University of Rwanda - Rwanda</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'></span>From: Oct-2018 to Dec-2020</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'>Dissertation:</span> Tree-based and Logistic Regression Machine Learning Models for Business Success Prediction in Rwanda</h6>", unsafe_allow_html=True)
     st.write(" ")
     
 
-    st.markdown("<h4 <span style = color:blue;'>Course:</span>Master of Science in Financial Engineering</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 <span style = color:black;'>Course:</span>Master of Science in Financial Engineering</h4>", unsafe_allow_html=True)
     st.markdown("<h6 <span'>School:</span>WorldQuant University, Louisiana, USA</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'></span>From: April-2019 to Feb-2021</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'></span>Dissertation: Comparison of Traditional Time Series techniques and Machine Learning models in Stock Market Price Prediction</h6>", unsafe_allow_html=True)
     st.write(" ")
 
-    st.markdown("<h4 <span style = color:blue;'>Course:</span> BSc. Actuarial Science </h4>", unsafe_allow_html=True)
+    st.markdown("<h4 <span style = color:black;'>Course:</span> BSc. Actuarial Science </h4>", unsafe_allow_html=True)
     st.markdown("<h6 <span'>School:</span> Moi University</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'></span>From: Jan-2013 to Dec-2016</h6>", unsafe_allow_html=True)
     st.write("Achieved: First Class Honors")
 
-    st.markdown("<h3 style='text-align: center; color: blue; background: #D3D3D3; margin: 3px'>Certifications</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: black; background: #D3D3D3; margin: 3px'>Certifications</h1>", unsafe_allow_html=True)
     x = ['AWS Machine Learning  (NANODREE)- Udacity, https://graduation.udacity.com/confirm/PDEYRAJ9', 'AWS Machine Learning  Foundations- Udacity: https://confirm.udacity.com/ULMKNC2R']    
      
     for i in x:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.5em 1em;position: margin:5px; relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: margin:5px; relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
     
-    st.markdown("<h3 style='text-align: center; color: blue; background: #D3D3D3; margin: 3px'>Contact Me</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: black; background: #D3D3D3; margin: 3px'>Contact Me</h1>", unsafe_allow_html=True)
     m = ['Phone: +254707825181','Email: francisyego4@gmail.com','LinkedIn: https://www.linkedin.com/in/francis-kipkogei-20058b139/']    
      
     for i in m:
             st.markdown(
-                f'<span style="background-color:#00C4EB;color: #FFFFFF;padding: 0.5em 1em;position: margin:5px; relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: margin:5px; relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
     
 
 
