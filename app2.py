@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 from PIL import Image
 from st_card_component import card_component as card
-
+import plotly.express as px
 
 # loading the saved models
 
@@ -41,7 +41,13 @@ if (selected == "Home"):
     
     # page title
     st.title("Home")
-    st.dataframe(df)
+    d=df.Outcome.value_counts()
+    d1=df.Outcome.value_counts(normalize=True).mul(100).round(2).astype(str).add('%')
+    b,b1, b2, = st.columns(3)
+    b.image(Image.open('R.jpg'))
+    st.dataframe(df.head())
+    b1.metric("Diabetic", d[1], d1[1])
+    b2.metric("Non-Dabetic", d[0], d1[0] )
     
     
        
@@ -111,6 +117,62 @@ if (selected == "Data Visualiztion"):
     st.write("""
     ## Plots Showing Relationsip between diabetes outcome and other features
     """)
+    a, b, c = st.columns(3)
+    with a:
+        st.write("""
+         Bar plot showing Relationship between diabetes outcome and BloodPressure
+        """)
+        def a_donut():
+            fig = px.pie(df, values='BloodPressure', names='Outcome',hole=0.5)
+            fig.update_traces(textinfo = 'percent + value', textfont_size=15)
+            # fig.update_layout(title_text = "Total BloodPressure by Diabetes Outcome", title_x = 0.5)
+            fig.update_layout(legend = dict(
+                orientation = 'h', 
+                yanchor = 'bottom', 
+                y = -0.1, 
+                xanchor = 'center', 
+                x = 0.5
+            ))
+            st.plotly_chart(fig, use_container_width=True)
+        a_donut()
+    
+    with b:
+        st.write("""
+         Bar plot showing Relationship between diabetes outcome and BMI
+        """)
+        def b_donut():
+            fig = px.pie(df, values='BMI', names='Outcome', hole=0.5)
+            fig.update_traces(textinfo = 'percent + value', textfont_size=15)
+            # fig.update_layout(title_text = "Total Diabetes BMI by Outcome", title_x = 0.5)
+            fig.update_layout(legend = dict(
+                orientation = 'h', 
+                yanchor = 'bottom', 
+                y = -0.3, 
+                xanchor = 'center', 
+                x = 0.7
+            ))
+            st.plotly_chart(fig, use_container_width=True)
+        b_donut()
+
+    with c:
+        st.write("""
+         Bar plot showing Relationship between diabetes outcome and Glucose Level
+          """)
+        def c_donut():
+            fig = px.pie(df, values='Glucose', names='Outcome', hole=0.5, template='seaborn',labels={1:'Diabetic',0:'Non Diabetic'})
+            fig.update_traces(textinfo = 'percent + value', textfont_size=15)
+            # fig.update_layout(title_text = "Total Glucose by Diabetes Outcome", title_x = 0.5)
+            fig.update_layout(legend = dict(
+                orientation = 'h', 
+                yanchor = 'bottom', 
+                y = -0.1, 
+                xanchor = 'center', 
+                x = 0.5
+            ))
+            st.plotly_chart(fig, use_container_width=True)
+        c_donut()
+
+    st.markdown("<hr/>",unsafe_allow_html=True)
     def plot():
         page = st.sidebar.selectbox(
             "Select a Page",
@@ -128,56 +190,79 @@ if (selected == "Data Visualiztion"):
             BoxPlot()
         elif page == "Bar plot":
             Barplot()
-    # BoxPlot, Barplot,countPlot= st.columns(4)
+
+    a, b, c = st.columns(3)
+    with a:
+        
+        st.write("""
+        Bar plot showing Relationship between diabetes outcome and DiabetesPedigreeFunction
+        """)
+        def Barplot():
+            fig = plt.figure(figsize=(10, 4))
+            sns.barplot(x='Outcome', y='DiabetesPedigreeFunction', data=df)
+            st.pyplot(fig)
+        Barplot()
+    with b:
+        st.write("""
+         Bar plot showing Relationship between diabetes outcome and SkinThickness
+        """)
+        def Barplot():
+            fig = plt.figure(figsize=(10, 4))
+            sns.barplot(x='Outcome', y='SkinThickness', data=df)
+            st.pyplot(fig)
+
+        Barplot()
+    with c:  
+        st.write("""
+          Bar plot showing Relationship between diabetes outcome and Glucose Level
+        """)
+        def Barplot():
+            fig = plt.figure(figsize=(10, 4))
+            sns.barplot(x='Outcome', y='Age', data=df)
+            st.pyplot(fig)
+
+        Barplot()
+    e, f, g = st.columns(3)
+    with e:
+        
+        st.write("""
+         Bar plot showing Relationship between diabetes outcome and DiabetesPedigreeFunction
+        """)
+        def BoxPlot():
+            fig = plt.figure(figsize=(10, 4))
+            sns.boxplot(x='Outcome', y='DiabetesPedigreeFunction', data=df)
+            st.pyplot(fig)
+        BoxPlot()
+    with f:
+        st.write("""
+          Box plot showing Relationship between diabetes outcome and SkinThickness
+        """)
+        def BoxPlot():
+            fig = plt.figure(figsize=(10, 4))
+            sns.boxplot(x='Outcome', y='SkinThickness', data=df)
+            st.pyplot(fig)
+
+        BoxPlot()
+    with g:  
+        st.write("""
+          Box plot showing Relationship between diabetes outcome and Glucose Level
+        """)
+        def BoxPlot():
+            fig = plt.figure(figsize=(10, 4))
+            sns.boxplot(x='Outcome', y='Age', data=df)
+            st.pyplot(fig)
+
+        BoxPlot()
+      
     st.write("""
-    #### Box plot showing Relationship between diabetes outcome and Number of Pregnancies
-    """)
+         Bar plot showing Relationship between diabetes outcome and Number of Pregnancies
+        """)  
     def countPlot():
-        fig = plt.figure(figsize=(10, 4))
-        sns.countplot(x = "Pregnancies",hue='Outcome', data = df)
-        st.pyplot(fig)
+                fig = plt.figure(figsize=(10, 4))
+                sns.countplot(x = "Pregnancies",hue='Outcome', data = df)
+                st.pyplot(fig)
 
     countPlot()
-    st.write("""
-    #### Box plot showing Relationship between diabetes outcome and Age
-    """)
-    
-    def BoxPlot():
-        fig = plt.figure(figsize=(10, 4))
-        sns.boxplot(x='Outcome', y='Age', data=df)
-        st.pyplot(fig)
-
-    BoxPlot()
-    st.write("""
-    #### Bar plot showing Relationship between diabetes outcome and BMI
-    """)
-    def Barplot():
-        fig = plt.figure(figsize=(10, 4))
-        sns.barplot(x='Outcome', y='BMI', data=df)
-        st.pyplot(fig)
-
-    Barplot()
-    st.write("""
-    #### Bar plot showing Relationship between diabetes outcome and BloodPressure
-    """)
-    def Barplot():
-        fig = plt.figure(figsize=(10, 4))
-        sns.barplot(x='Outcome', y='BloodPressure', data=df)
-        st.pyplot(fig)
-
-    Barplot()
-        
-    st.write("""
-    #### Bar plot showing Relationship between diabetes outcome and Glucose Level
-    """)
-    def Barplot():
-        fig = plt.figure(figsize=(10, 4))
-        sns.barplot(x='Outcome', y='Glucose', data=df)
-        st.pyplot(fig)
-
-    Barplot()
-
-
 # 
 
 # Parkinson's Prediction Page
