@@ -371,26 +371,29 @@ if (selected == "About"):
             
     st.markdown("<h3 style='text-align: center; color: black; background: #D3D3D3; margin: 3px'>Education</h1>", unsafe_allow_html=True)
     st.markdown("<h4 <span style = color:black;'>Course:</span>Master of Science in Data Science</h4>", unsafe_allow_html=True)
-    st.markdown("<h6 <span'>School:</span> ACE-DS, University of Rwanda - Rwanda</h6>", unsafe_allow_html=True)
+    st.markdown("<h6 <span'>School:</span> ACE-DS, University of Rwanda, Kigali, Rwanda</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'></span>From: Oct-2018 to Dec-2020</h6>", unsafe_allow_html=True)
-    st.markdown("<h6 <span'>Dissertation:</span> Tree-based and Logistic Regression Machine Learning Models for Business Success Prediction in Rwanda</h6>", unsafe_allow_html=True)
+    
     st.write(" ")
     
 
     st.markdown("<h4 <span style = color:black;'>Course:</span>Master of Science in Financial Engineering</h4>", unsafe_allow_html=True)
     st.markdown("<h6 <span'>School:</span>WorldQuant University, Louisiana, USA</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'></span>From: April-2019 to Feb-2021</h6>", unsafe_allow_html=True)
-    st.markdown("<h6 <span'></span>Dissertation: Comparison of Traditional Time Series techniques and Machine Learning models in Stock Market Price Prediction</h6>", unsafe_allow_html=True)
     st.write(" ")
 
     st.markdown("<h4 <span style = color:black;'>Course:</span> BSc. Actuarial Science </h4>", unsafe_allow_html=True)
-    st.markdown("<h6 <span'>School:</span> Moi University</h6>", unsafe_allow_html=True)
+    st.markdown("<h6 <span'>School:</span> Moi University, Kenya</h6>", unsafe_allow_html=True)
     st.markdown("<h6 <span'></span>From: Jan-2013 to Dec-2016</h6>", unsafe_allow_html=True)
-    st.write("Achieved: First Class Honors")
-
+    # st.write("Achieved: First Class Honors")
+    st.markdown("<h3 style='text-align: center; color: black; background: #D3D3D3; margin: 3px'>Publication</h1>", unsafe_allow_html=True)
+    h = ['Kipkogei, F., Kabano, I. H., Murorunkwere, B. F., & Joseph, N. (2021). Business success prediction in Rwanda: a comparison of tree-based models and logistic regression classifiers. SN Business & Economics, 1(8), 1-19. https://doi.org/10.1007/s43546-021-00104-2']    
+    for i in h:
+            st.markdown(
+                f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: margin:5px; relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
+    
     st.markdown("<h3 style='text-align: center; color: black; background: #D3D3D3; margin: 3px'>Certifications</h1>", unsafe_allow_html=True)
-    x = ['AWS Machine Learning  (NANODREE)- Udacity, https://graduation.udacity.com/confirm/PDEYRAJ9', 'AWS Machine Learning  Foundations- Udacity: https://confirm.udacity.com/ULMKNC2R']    
-     
+    x = ['AWS Machine Learning  (NANODREE)- Udacity, https://graduation.udacity.com/confirm/PDEYRAJ9', 'AWS Machine Learning  Foundations- Udacity: https://confirm.udacity.com/ULMKNC2R']     
     for i in x:
             st.markdown(
                 f'<span style="background-color:#00C4EB;color: #grey;padding: 0.5em 1em;position: margin:5px; relative;text-decoration: none;font-weight:bold;cursor: pointer;">{i}</span>', unsafe_allow_html=True)
